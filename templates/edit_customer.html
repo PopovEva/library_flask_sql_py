@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Customer{% endblock %}
+
+{% block content %}
+<h1>Edit Customer</h1>
+<form action="/edit_customer/{{ customer[0] }}" method="POST">
+  <label for="Name">Customer Name</label><br>
+  <input type="text" name="Name" value="{{ customer[1] }}" required> <br>
+  <label for="City">City</label><br>
+  <input type="text" name="City" value="{{ customer[2] }}" required> <br>
+  <label for="Age">Age</label><br>
+  <input type="number" name="Age" value="{{ customer[3] }}" required> <br>
+  <input type="submit" value="Update Customer">
+</form>
+<a href="/customers">Cancel</a>
+{% endblock %}

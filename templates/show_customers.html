@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Customers{% endblock %}
+
+{% block content %}
+<h1>All Customers</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>City</th>
+    <th>Age</th>
+  </tr>
+  {% for customer in customers %}
+  <tr>
+    <td>{{ customer[0] }}</td>
+    <td>{{ customer[1] }}</td>
+    <td>{{ customer[2] }}</td>
+    <td>{{ customer[3] }}</td>
+    <td>
+      <form action="/edit_customer/{{ customer[0] }}" method="GET" style="display:inline;">
+        <button type="submit">Edit</button>
+      </form>
+      <form action="/delete_customer/{{ customer[0] }}" method="POST" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+<a href="/">Back to Index</a>
+{% endblock %}

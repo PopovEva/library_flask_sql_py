@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .form-heading {
+        text-align: center;
+        font-size: 24px;
+        margin: 20px 0;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+  <h1>Index</h1>
+  Welcome to my Library <br><br><br>
+
+  <!-- Форма для добавления книги -->
+  <h2 class="form-heading">Create New Book:</h2>
+  <form action="/add_book" method="POST">
+    <label for="Name">Enter Book Name</label><br>
+    <input type="text" name="Name" required> <br>
+    <label for="Author">Enter Author</label><br>
+    <input type="text" name="Author" required> <br>
+    <label for="Year_Published">Enter Year Published</label><br>
+    <input type="number" name="Year_Published" required> <br>
+    <label for="Type">Enter Type (1, 2, or 3)</label><br>
+    <input type="number" name="Type" min="1" max="3" required> <br>
+    <input type="submit" value="Add Book">
+  </form>
+  <br>
+
+  <!-- Кнопка для отображения всех книг -->   
+  <form action="/books" method="GET">
+    <button type="submit">Show all books</button>
+  </form>
+  <br>
+
+  <!-- Форма для добавления клиента -->
+  <h2 class="form-heading">Create New Customer:</h2>   
+  <form action="/add_customer" method="POST">
+    <label for="Name">Enter Customer Name</label><br>
+    <input type="text" name="Name" required> <br>
+    <label for="City">Enter City</label><br>
+    <input type="text" name="City" required> <br>
+    <label for="Age">Enter Age</label><br>
+    <input type="number" name="Age" required> <br>
+    <input type="submit" value="Add Customer">
+  </form>
+  <br>
+
+  <!-- Кнопка для отображения всех клиентов -->
+  <form action="/customers" method="GET">
+    <button type="submit">Show all customers</button>
+  </form>
+  <br>
+
+  <!-- Форма для добавления займа -->
+  <h2 class="form-heading">Create New Loan:</h2>   
+  <form action="/add_loan" method="POST">
+    <label for="CustID">Enter Customer ID</label><br>
+    <input type="number" name="CustID" required> <br>
+    <label for="BookID">Enter Book ID</label><br>
+    <input type="number" name="BookID" required> <br>
+    <label for="LoanDate">Enter Loan Date</label><br>
+    <input type="date" name="LoanDate" id="LoanDate" required> <br>
+    <label for="ReturnDate">Enter Return Date (optional)</label><br>
+    <input type="date" name="ReturnDate"> <br>
+    <input type="submit" value="Add Loan">
+  </form>
+
+  <!-- Кнопка для отображения всех займов -->
+  <form action="/loans" method="GET">
+    <button type="submit">Show all loans</button>
+  </form>
+
+  <p class="important">Welcome to my awesome homepage.</p>
+
+  <script type="text/javascript">
+
+    // Устанавливаем сегодняшнюю дату для поля LoanDate
+    document.getElementById('LoanDate').value = new Date().toISOString().split('T')[0];
+  </script>
+{% endblock %}
+

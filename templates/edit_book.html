@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Book{% endblock %}
+
+{% block content %}
+<h1>Edit Book</h1>
+<form action="/edit_book/{{ book[0] }}" method="POST">
+  <label for="Name">Book Name</label><br>
+  <input type="text" name="Name" value="{{ book[1] }}" required> <br>
+  <label for="Author">Author</label><br>
+  <input type="text" name="Author" value="{{ book[2] }}" required> <br>
+  <label for="Year_Published">Year Published</label><br>
+  <input type="number" name="Year_Published" value="{{ book[3] }}" required> <br>
+  <label for="Type">Type (1, 2, or 3)</label><br>
+  <input type="number" name="Type" value="{{ book[4] }}" min="1" max="3" required> <br>
+  <input type="submit" value="Update Book">
+</form>
+<a href="/books">Cancel</a>
+{% endblock %}

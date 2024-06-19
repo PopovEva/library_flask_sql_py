@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Loan{% endblock %}
+
+{% block content %}
+<h1>Edit Loan</h1>
+<form action="/edit_loan/{{ loan[0] }}/{{ loan[1] }}" method="POST">
+  <label for="LoanDate">Loan Date</label><br>
+  <input type="date" name="LoanDate" value="{{ loan[2] }}" required> <br>
+  <label for="ReturnDate">Return Date</label><br>
+  <input type="date" name="ReturnDate" value="{{ loan[3] }}"> <br>
+  <input type="submit" value="Update Loan">
+</form>
+<a href="/loans">Cancel</a>
+{% endblock %}
