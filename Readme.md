@@ -105,4 +105,3 @@ This project is licensed under the MIT License.
 
 - [Flask](https://flask.palletsprojects.com/) - The web framework used
 - [SQLite](https://www.sqlite.org/index.html) - Database engine
-
