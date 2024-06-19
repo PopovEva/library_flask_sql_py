@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
+
 import sqlite3
 con = sqlite3.connect("Library.db", check_same_thread=False)
 cur = con.cursor()
